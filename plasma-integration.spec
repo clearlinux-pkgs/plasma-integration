@@ -6,7 +6,7 @@
 #
 Name     : plasma-integration
 Version  : 5.14.5
-Release  : 11
+Release  : 12
 URL      : https://download.kde.org/stable/plasma/5.14.5/plasma-integration-5.14.5.tar.xz
 Source0  : https://download.kde.org/stable/plasma/5.14.5/plasma-integration-5.14.5.tar.xz
 Source99 : https://download.kde.org/stable/plasma/5.14.5/plasma-integration-5.14.5.tar.xz.sig
