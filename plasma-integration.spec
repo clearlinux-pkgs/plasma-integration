@@ -6,11 +6,11 @@
 #
 Name     : plasma-integration
 Version  : 5.15.4
-Release  : 20
+Release  : 21
 URL      : https://download.kde.org/stable/plasma/5.15.4/plasma-integration-5.15.4.tar.xz
 Source0  : https://download.kde.org/stable/plasma/5.15.4/plasma-integration-5.15.4.tar.xz
 Source99 : https://download.kde.org/stable/plasma/5.15.4/plasma-integration-5.15.4.tar.xz.sig
-Summary  : Qt Platform Theme integration plugins for the Plasma workspaces
+Summary  : No detailed summary available
 Group    : Development/Tools
 License  : LGPL-3.0
 Requires: plasma-integration-data = %{version}-%{release}
@@ -28,6 +28,7 @@ BuildRequires : libX11-dev libICE-dev libSM-dev libXau-dev libXcomposite-dev lib
 BuildRequires : pkg-config
 BuildRequires : pkgconfig(Qt5Gui)
 BuildRequires : qtbase-dev mesa-dev
+BuildRequires : qtbase-staticdev
 BuildRequires : qtx11extras-dev
 
 %description
@@ -77,15 +78,16 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1555347629
+export SOURCE_DATE_EPOCH=1556946452
 mkdir -p clr-build
 pushd clr-build
+export LDFLAGS="${LDFLAGS} -fno-lto"
 %cmake ..
-make  %{?_smp_mflags}
+make  %{?_smp_mflags} VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1555347629
+export SOURCE_DATE_EPOCH=1556946452
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/plasma-integration
 cp COPYING.LGPL-3 %{buildroot}/usr/share/package-licenses/plasma-integration/COPYING.LGPL-3
