@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xEC94D18F7F05997E (jr@jriddell.org)
 #
 Name     : plasma-integration
-Version  : 5.18.0
-Release  : 45
-URL      : https://download.kde.org/stable/plasma/5.18.0/plasma-integration-5.18.0.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.18.0/plasma-integration-5.18.0.tar.xz
-Source1  : https://download.kde.org/stable/plasma/5.18.0/plasma-integration-5.18.0.tar.xz.sig
+Version  : 5.18.1
+Release  : 46
+URL      : https://download.kde.org/stable/plasma/5.18.1/plasma-integration-5.18.1.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.18.1/plasma-integration-5.18.1.tar.xz
+Source1  : https://download.kde.org/stable/plasma/5.18.1/plasma-integration-5.18.1.tar.xz.sig
 Summary  : Qt Platform Theme integration plugins for the Plasma workspaces
 Group    : Development/Tools
 License  : LGPL-3.0
@@ -70,15 +70,15 @@ locales components for the plasma-integration package.
 
 
 %prep
-%setup -q -n plasma-integration-5.18.0
-cd %{_builddir}/plasma-integration-5.18.0
+%setup -q -n plasma-integration-5.18.1
+cd %{_builddir}/plasma-integration-5.18.1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1581444937
+export SOURCE_DATE_EPOCH=1582084202
 mkdir -p clr-build
 pushd clr-build
 # -Werror is for werrorists
@@ -95,10 +95,10 @@ make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1581444937
+export SOURCE_DATE_EPOCH=1582084202
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/plasma-integration
-cp %{_builddir}/plasma-integration-5.18.0/COPYING.LGPL-3 %{buildroot}/usr/share/package-licenses/plasma-integration/f45ee1c765646813b442ca58de72e20a64a7ddba
+cp %{_builddir}/plasma-integration-5.18.1/COPYING.LGPL-3 %{buildroot}/usr/share/package-licenses/plasma-integration/f45ee1c765646813b442ca58de72e20a64a7ddba
 pushd clr-build
 %make_install
 popd
