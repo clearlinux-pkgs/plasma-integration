@@ -1,5 +1,7 @@
 # This file contains additional build requirements that did not get
 # picked up automatically. One name per line, no whitespace.
 breeze
+breeze-dev
 breeze-icons
+kwayland-dev
 qtbase-staticdev
