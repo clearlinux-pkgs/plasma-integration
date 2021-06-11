@@ -5,12 +5,12 @@
 # Source0 file verified with key 0xEC94D18F7F05997E (jr@jriddell.org)
 #
 Name     : plasma-integration
-Version  : 5.21.4
-Release  : 64
-URL      : https://download.kde.org/stable/plasma/5.21.4/plasma-integration-5.21.4.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.21.4/plasma-integration-5.21.4.tar.xz
-Source1  : https://download.kde.org/stable/plasma/5.21.4/plasma-integration-5.21.4.tar.xz.sig
-Summary  : No detailed summary available
+Version  : 5.22.0
+Release  : 65
+URL      : https://download.kde.org/stable/plasma/5.22.0/plasma-integration-5.22.0.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.22.0/plasma-integration-5.22.0.tar.xz
+Source1  : https://download.kde.org/stable/plasma/5.22.0/plasma-integration-5.22.0.tar.xz.sig
+Summary  : Plasma's key data used for key-holding behaviour
 Group    : Development/Tools
 License  : LGPL-3.0
 Requires: plasma-integration-data = %{version}-%{release}
@@ -46,6 +46,18 @@ Group: Data
 data components for the plasma-integration package.
 
 
+%package dev
+Summary: dev components for the plasma-integration package.
+Group: Development
+Requires: plasma-integration-lib = %{version}-%{release}
+Requires: plasma-integration-data = %{version}-%{release}
+Provides: plasma-integration-devel = %{version}-%{release}
+Requires: plasma-integration = %{version}-%{release}
+
+%description dev
+dev components for the plasma-integration package.
+
+
 %package lib
 Summary: lib components for the plasma-integration package.
 Group: Libraries
@@ -73,15 +85,15 @@ locales components for the plasma-integration package.
 
 
 %prep
-%setup -q -n plasma-integration-5.21.4
-cd %{_builddir}/plasma-integration-5.21.4
+%setup -q -n plasma-integration-5.22.0
+cd %{_builddir}/plasma-integration-5.22.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1618703045
+export SOURCE_DATE_EPOCH=1623433208
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -97,10 +109,10 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1618703045
+export SOURCE_DATE_EPOCH=1623433208
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/plasma-integration
-cp %{_builddir}/plasma-integration-5.21.4/COPYING.LGPL-3 %{buildroot}/usr/share/package-licenses/plasma-integration/f45ee1c765646813b442ca58de72e20a64a7ddba
+cp %{_builddir}/plasma-integration-5.22.0/COPYING.LGPL-3 %{buildroot}/usr/share/package-licenses/plasma-integration/f45ee1c765646813b442ca58de72e20a64a7ddba
 pushd clr-build
 %make_install
 popd
@@ -119,8 +131,14 @@ popd
 /usr/share/kconf_update/fonts_kate.pl
 /usr/share/kconf_update/fonts_kate.upd
 
+%files dev
+%defattr(-,root,root,-)
+/usr/include/PlasmaKeyData/plasmakeydata.h
+/usr/lib64/pkgconfig/plasma-key-data.pc
+
 %files lib
 %defattr(-,root,root,-)
+/usr/lib64/qt5/plugins/platforminputcontexts/plasmaimplatforminputcontextplugin.so
 /usr/lib64/qt5/plugins/platformthemes/KDEPlasmaPlatformTheme.so
 
 %files license
