@@ -6,11 +6,11 @@
 # Source0 file verified with key 0xD7574483BB57B18D (jr@jriddell.org)
 #
 Name     : plasma-integration
-Version  : 5.27.7
-Release  : 103
-URL      : https://download.kde.org/stable/plasma/5.27.7/plasma-integration-5.27.7.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.27.7/plasma-integration-5.27.7.tar.xz
-Source1  : https://download.kde.org/stable/plasma/5.27.7/plasma-integration-5.27.7.tar.xz.sig
+Version  : 5.27.8
+Release  : 104
+URL      : https://download.kde.org/stable/plasma/5.27.8/plasma-integration-5.27.8.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.27.8/plasma-integration-5.27.8.tar.xz
+Source1  : https://download.kde.org/stable/plasma/5.27.8/plasma-integration-5.27.8.tar.xz.sig
 Summary  : Plasma's key data used for key-holding behaviour
 Group    : Development/Tools
 License  : BSD-3-Clause CC0-1.0 GPL-2.0 GPL-3.0 LGPL-2.0 LGPL-2.1 LGPL-3.0
@@ -91,15 +91,15 @@ locales components for the plasma-integration package.
 
 
 %prep
-%setup -q -n plasma-integration-5.27.7
-cd %{_builddir}/plasma-integration-5.27.7
+%setup -q -n plasma-integration-5.27.8
+cd %{_builddir}/plasma-integration-5.27.8
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1690896469
+export SOURCE_DATE_EPOCH=1694540840
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -132,7 +132,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1690896469
+export SOURCE_DATE_EPOCH=1694540840
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/plasma-integration
 cp %{_builddir}/plasma-integration-%{version}/LICENSES/BSD-3-Clause.txt %{buildroot}/usr/share/package-licenses/plasma-integration/9950d3fdce1cff1f71212fb5abd31453c6ee2f8c || :
