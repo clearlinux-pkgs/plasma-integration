@@ -1,0 +1,13 @@
+6.0.2
+kconfig-dev
+kconfigwidgets-dev
+kguiaddons-dev
+ki18n-dev
+kiconthemes-dev
+kio-dev
+knotifications-dev
+kstatusnotifieritem-dev
+kwindowsystem-dev
+kxmlgui-dev
+qt6wayland-dev
+qtx11extras-dev
