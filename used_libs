@@ -6,9 +6,12 @@ libKF6CoreAddons.so.6
 libKF6GuiAddons.so.6
 libKF6I18n.so.6
 libKF6IconThemes.so.6
+libKF6JobWidgets.so.6
 libKF6KIOCore.so.6
 libKF6KIOFileWidgets.so.6
+libKF6KIOGui.so.6
 libKF6KIOWidgets.so.6
+libKF6Service.so.6
 libKF6StatusNotifierItem.so.6
 libKF6WidgetsAddons.so.6
 libKF6WindowSystem.so.6
